@@ -1,8 +1,10 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
 body {
     font-family: 'Roboto', sans-serif;
     background: #f2f3f8;
+}
+*{
+    font-family: 'Roboto', sans-serif;
 }
 
 p {
@@ -27,23 +29,28 @@ a, a:hover, a:focus {
     /* margin-bottom: 40px; */
     box-shadow: 1px 1px 3px #575962;
 }
-.titleNav{
+
+.titleNav {
+    padding-top: 10px;
     color: #fff;
     font-size: 1.1em;
     font-weight: bold;
 }
+
 /* cambiar el color de fondo a la barra */
+
 nav.navbar {
     background-color: #575962 !important;
     color: #fff !important;
+    height: 50px;
 }
 
-.navbar-btn {
-    box-shadow: none;
+.navbar-btn .btn-navbar {
+    box-shadow: none !important;
     outline: none !important;
-    border: none;
+    border: none !important;
     background-color: #575962 !important;
-    color: #fff !important;
+    color: #575962 !important;
 }
 
 .line {
@@ -58,21 +65,25 @@ nav.navbar {
 ----------------------------------------------------- */
 
 .wrapper {
-    display: flex;
+    /* display: flex; */
     width: 100%;
     align-items: stretch;
     perspective: 1500px;
 }
 
-
 #sidebar {
-    min-width: 200px;
-    max-width: 200px;
+    min-width: 230px;
+    max-width: 230px;
     height: 100%;
     background: #fff;
     color: #575962;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
+    -webkit-box-shadow: 12px 0px 7px -7px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 12px 0px 7px -7px rgba(0, 0, 0, 0.22);
+    box-shadow: 12px 0px 7px -7px rgba(0, 0, 0, 0.22);
+    position: absolute;
+    padding-top: 39px;
 }
 
 #sidebar.active {
@@ -98,19 +109,28 @@ nav.navbar {
 
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.1em;
+    /* font-size: 1.1em; */
     display: block;
+    font-size: 23px;
+    font-weight: bold;
 }
+
 #sidebar ul li a:hover {
     color: #0872c7;
     background: #fff;
+    /* font-size: 21px; */
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li.active>a, a[aria-expanded="true"] {
     color: #0872c7;
-    background: #fff;
+    background: #f2f3f8;
+    font-size: 20px;
 }
 
+.icon {
+    margin-right: 15px;
+    margin-left: 5px;
+}
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -152,11 +172,17 @@ a.article, a.article:hover {
     color: #fff !important;
 }
 
-
-
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
+.contenido{
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    padding-right: 40px;
+    width: 100%;
+}
+
 #content {
     width: 100%;
     padding: 0px;
@@ -167,7 +193,7 @@ a.article, a.article:hover {
 #sidebarCollapse {
     width: 40px;
     height: 40px;
-    background: #f5f5f5;
+    background: #575962;
     cursor: pointer;
 }
 
@@ -176,7 +202,7 @@ a.article, a.article:hover {
     height: 2px;
     margin: 0 auto;
     display: block;
-    background: #555;
+    background: #fff;
     transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
     transition-delay: 0.2s;
 }
@@ -184,13 +210,14 @@ a.article, a.article:hover {
 #sidebarCollapse span:first-of-type {
     transform: rotate(45deg) translate(2px, 2px);
 }
+
 #sidebarCollapse span:nth-of-type(2) {
     opacity: 0;
 }
+
 #sidebarCollapse span:last-of-type {
     transform: rotate(-45deg) translate(1px, -1px);
 }
-
 
 #sidebarCollapse.active span {
     transform: none;
@@ -198,10 +225,10 @@ a.article, a.article:hover {
     margin: 5px auto;
 }
 
-
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
@@ -211,9 +238,7 @@ a.article, a.article:hover {
         margin-left: 0;
         transform: none;
     }
-    #sidebarCollapse span:first-of-type,
-    #sidebarCollapse span:nth-of-type(2),
-    #sidebarCollapse span:last-of-type {
+    #sidebarCollapse span:first-of-type, #sidebarCollapse span:nth-of-type(2), #sidebarCollapse span:last-of-type {
         transform: none;
         opacity: 1;
         margin: 5px auto;
@@ -230,5 +255,4 @@ a.article, a.article:hover {
     #sidebarCollapse.active span:last-of-type {
         transform: rotate(-45deg) translate(1px, -1px);
     }
-
 }
