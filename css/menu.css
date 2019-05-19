@@ -2,6 +2,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background: #f2f3f8;
+    overflow-y:hidden;
 }
 *{
     font-family: 'Roboto', sans-serif;
@@ -67,8 +68,10 @@ nav.navbar {
 .wrapper {
     /* display: flex; */
     width: 100%;
+   
     align-items: stretch;
     perspective: 1500px;
+    
 }
 
 #sidebar {
@@ -82,8 +85,8 @@ nav.navbar {
     -webkit-box-shadow: 12px 0px 7px -7px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 12px 0px 7px -7px rgba(0, 0, 0, 0.22);
     box-shadow: 12px 0px 7px -7px rgba(0, 0, 0, 0.22);
-    position: absolute;
-    padding-top: 39px;
+    position: relative;
+    /* padding-top: 39px; */
 }
 
 #sidebar.active {
@@ -176,18 +179,37 @@ a.article, a.article:hover {
     CONTENT STYLE
 ----------------------------------------------------- */
 .contenido{
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-bottom: 20px;
-    padding-right: 40px;
-    width: 100%;
+    
+    display: flex; 
+    padding: 0px;
+    min-height: 100vh;
 }
+/* .contenidos{
+    
+
+} */
+#global {
+	width: 100%;
+    margin:0 auto; 
+    padding:0px; 
+    height:95%;
+    overflow-y: scroll;
+    display: flex; 
+}
+#mensajes {
+	height: auto;
+}
+/* .texto {
+	padding:4px;
+	background:#fff;
+} */
 
 #content {
     width: 100%;
     padding: 0px;
     min-height: 100vh;
     transition: all 0.3s;
+   
 }
 
 #sidebarCollapse {
