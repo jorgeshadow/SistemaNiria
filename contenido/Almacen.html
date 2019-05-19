@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+
+    <!---js-->
+    <script src="../js/main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
+    <!-- Font Awesome-->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+        integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+        crossorigin="anonymous"></script>
+    <title>Prestamos</title>
+
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="content">
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn btn btn-dark d-lg-auto ml-0">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <p class="titleNav">Control Centro de Computo</p>
+
+                </div>
+            </nav>
+
+<div class="wrapper">
+            <div class="contenido">
+
+                <div>
+                    <!-- Sidebar -->
+                    <nav id="sidebar" style="height:100%; min-height:100%;">
+                        <ul class="list-unstyled components">
+                            <li >
+                                <a  href="../index.html"><i class="fas fa-tachometer-alt icon"></i>Inicio</a>
+                            </li>
+
+                            <li >
+                                <a cla href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                                    class="dropdown-toggle "><i class=" fas fa-warehouse icon"></i>Almacen</a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu">
+                                    <li class="active">
+                                        <a href="../contenido/Almacen.html">Prestamos</a>
+                                    </li>
+                                    <li>
+                                        <a href="Stock.html">Stock</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a  href="./contenido/equipos.html"> <i class="fas fa-laptop-code icon"></i>Eq. Computo</a>
+                            </li>
+
+                            <li >
+                                <a href="#"> <i class="fas fa-money-bill-wave icon"></i>Partidas</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="container-fluid" style="padding-right: 0 !important; padding-left: 0 !important;">
+                    <div id="global">
+                        <div class="container" style="    max-height: -webkit-fill-available">
+                        <div id="mensajes">
+                            <div class="row">
+                                <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <h2>Almacen Prestamos</h2>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 ">
+                                    
+                                </div>
+                                <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 offset-md-5 input-group-sm">
+                                    <input placeholder="Buscar" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <div class="row">
+                                        <div class="col-12 col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                                            <button data-target=".bd-Filtrar-modal-lg" data-toggle="modal" type="button" class="btn btn-primary btn-md btn-block">Filtrar</button>
+                                        </div>
+                                        <div class="col-12 col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                                            <button type="button" class="btn btn-secondary btn-md btn-block">Ver Todo</button>
+                                        </div>  
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+                                            <th scope="col">Last</th>
+                                            <th scope="col">Handle</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+                                            <td>@twitter</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>  
+                                </div>
+                                <div class="col-3 col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                <button data-target=".bd-example-modal-lg" data-toggle="modal" type="button" class="btn btn-success btn-md btn-block">Nuevo</button>
+                                                <br>
+                                            </div>
+                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                <button type="button" class="btn btn-success btn-md btn-block">Ver Todo</button>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+<!-- modal Nuevo -->
+
+    <div class="modal fade bd-Filtrar-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <h3>Filtrar </h3>
+                            <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-default">Fecha Inicial</span>
+                                    </div>
+                                    <input placeholder="Clave" type="date" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                             </div>
+                            
+                    </div>
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-default">Fecha Final</span>
+                                    </div>
+                                    <input placeholder="Clave" type="date" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                             </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="text-align: center">
+                        <div class="row">
+                            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="text-align: right">
+                                    <button type="button" class="btn btn-success">Agregar</button>
+                            </div>
+                            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="text-align:left">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <p></p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- modal filtrar -->
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <h2>Nuevo Prestamo</h2>
+                        </div>
+                     </div>
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <select class="form-control">
+                                <option value="volvo">Articulo1</option>
+                                <option value="saab">Articulo2</option>
+                                <option value="opel">Articulo3</option>
+                                <option value="audi">Articulo4</option>
+                              </select>
+                              <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <input placeholder="Clave" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <input placeholder="Cantidad" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <input placeholder="Encargado" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <input placeholder="Solicitante" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <br>
+                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <select class="form-control">
+                                <option value="volvo">Departamento1</option>
+                                <option value="saab">Departamento2</option>
+                                <option value="opel">Departamento3</option>
+                                <option value="audi">Departamento4</option>
+                                </select>
+                                <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    
+                        </div>
+                        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="row">
+                                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <button type="button" class="btn btn-success">Agregar</button>
+                                </div>
+                                <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p></p>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- modal filtrar final-->
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
