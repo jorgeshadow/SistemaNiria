@@ -1,0 +1,39 @@
+.contenidoCentral {
+    padding-top: 30px;
+    padding-left: 20px;
+    
+}
+
+.inputBuscar {
+    text-align: right;
+    padding-right: 176px;
+}
+
+#buscar {
+    border-radius: 5px;
+    border: 0;
+    padding: 2px;
+}
+
+.divFilter {
+    padding-top: 30px;
+}
+
+.contentTable {
+    background-color: #ffffff;
+    -webkit-box-shadow: 8px 6px 24px -7px rgba(0,0,0,0.31);
+    -moz-box-shadow: 8px 6px 24px -7px rgba(0,0,0,0.31);
+    box-shadow: 8px 6px 24px -7px rgba(0,0,0,0.31);
+}
+
+.botonesV button{
+    padding-bottom: 1px !important;
+    width: 70% !important;
+}
+.botonesV{
+    padding-bottom: 10px !important;
+    
+}
+.inputForm{
+    padding-bottom: 20px;
+}
