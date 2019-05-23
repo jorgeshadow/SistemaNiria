@@ -1,10 +1,14 @@
+import environment from "../main.js";
 
-    firebase.initializeApp({
+    /*firebase.initializeApp({
         apiKey: "AIzaSyAE5jJKOvZCVZvjFkO0NUBwgvLz4KxnNWk",
         authDomain: "systemstec-69d04.firebaseapp.com",
         projectId: "systemstec-69d04",
         databaseURL: "https://systemstec-69d04.firebaseio.com/"
-      })
+      })*/
+
+      console.log(environment)
+      firebase.initializeApp(environment.firebase)
 
 var form = document.getElementById('partidaForm'); // Obtenemos la referencia al formulario
 if(form){ // Si existe nuestro elemento en memoria este se quedara escuchando al evento submit del formulario
