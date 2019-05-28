@@ -94,8 +94,9 @@
                                     </div>
 
                                     <div class="divFilter">
-                                        <button type="button" class="btn btn-primary">Filtrar</button>
-                                        <button type="button" class="btn btn-secondary">Ver Todo</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#modalFiltro">Filtrar</button>
+                                        <button type="button" class="btn btn-secondary" onclick="llenarTabla()">Ver Todo</button>
                                     </div>
 
                                     <br>
@@ -165,6 +166,7 @@
                     <form class="col-sm-12" id="partidaForm">
                         <div class="form-group">
                             <div class="col-md-7 inputForm">
+                                    <label style="padding-right: 2px;">Fecha</label>
                                 <input class="form-control" value="" type="date" id="fecha" name="fecha">
                             </div>
                             <br>
@@ -186,7 +188,7 @@
                                     name="cantidad" />
                             </div>
                             <div class="col-sm-10 inputForm">
-                                <input class="form-control" type="text" placeholder="Precio Unitario: 00.00" required
+                                <input class="form-control" type="text" placeholder="Precio Unitario: 0000" required
                                     id="precioU" name="precioU">
                             </div>
                         </div>
@@ -201,7 +203,38 @@
         </div>
     </div>
 
-
+    <!--Modal Filtrar por-->
+    <div class="modal fade" id="modalFiltro" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Filtrar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="col-sm-12" id="formFilter">
+                        <div class="form-group">
+                            <div class="col-md-7 inputForm">
+                                    <label style="padding-right: 2px;">Fecha Inicial</label>
+                                <input class="form-control" value="" type="date" id="fechaIni" name="fechaIni">
+                            </div>
+                            <div class="col-md-7 inputForm">
+                                    <label style="padding-right: 2px;">Fecha Final</label>
+                                <input class="form-control" value="" type="date" id="fechaFin" name="fechaFin">
+                            </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" value="Enviar" class="btn btn-primary" form="formFilter">Filtrar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        id="closeModalFilter">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
