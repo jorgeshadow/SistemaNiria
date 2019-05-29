@@ -90,7 +90,7 @@ function llenarTabla() {
         cellPartida.innerHTML = d.partida;
         cellPU.innerHTML = "$ " + d.precioU + " MNX";
         cellEdit.innerHTML = '<a class="btn btn-warning"><em class="fa fa-edit" style="color:white"></em></a>';
-        cellDelete.innerHTML = ' <a class="btn btn-danger"><em class="fa fa-trash-alt" style="color:white"></em></a>';
+        cellDelete.innerHTML = ' <a class="btn btn-danger" onclick="remover(\''+datos.key+'\')"><em class="fa fa-trash-alt" style="color:white"></em></a>';
 
       }
 
@@ -102,12 +102,17 @@ this.llenarTabla();
 
 /** filtrar */
 
-var form = document.getElementById('formFilter'); // Obtenemos la referencia al formulario
-if (form) { // Si existe nuestro elemento en memoria este se quedara escuchando al evento submit del formulario
+var form2 = document.getElementById('formFilter'); // Obtenemos la referencia al formulario
+if (form2) { // Si existe nuestro elemento en memoria este se quedara escuchando al evento submit del formulario
   document.getElementById("fechaIni").valueAsDate = new Date();
   document.getElementById("fechaFin").valueAsDate = new Date();
-  form.addEventListener('submit', filtrarFecha); // Al momento de enviar el formulario, ejecuta la función "contactform"
+  form2.addEventListener('submit', filtrarFecha); // Al momento de enviar el formulario, ejecuta la función "contactform"
 }
+$('#modalFiltro').on('hidden.bs.modal', function (e) {
+  form2.reset();
+  document.getElementById("fechaIni").valueAsDate = new Date();
+  document.getElementById("fechaFin").valueAsDate = new Date();
+})
 
 function filtrarFecha() {
   event.preventDefault(); // Prevenimos el comportamiento por defecto de un formulario (Enviar por URL los parametros)
@@ -143,15 +148,21 @@ function filtrarFecha() {
           cellPartida.innerHTML = d.partida;
           cellPU.innerHTML = "$ " + d.precioU + " MNX";
           cellEdit.innerHTML = '<a class="btn btn-warning"><em class="fa fa-edit" style="color:white"></em></a>';
-          cellDelete.innerHTML = ' <a class="btn btn-danger"><em class="fa fa-trash-alt" style="color:white"></em></a>';
+          cellDelete.innerHTML = ' <a class="btn btn-danger" onclick="remover(\''+datos.key+'\')"><em class="fa fa-trash-alt" style="color:white"></em></a>';
   
         }
   
       });
   }
-  form.reset(); // borramos todos los campos. 
+  form2.reset(); // borramos todos los campos. 
 }
 
+
+function remover(key){
+  var data = db.ref('partidas');
+  data.child(key).remove();
+  this.llenarTabla()
+}
 
 /**validaciones date */
 
@@ -169,6 +180,7 @@ var yyyy = today.getFullYear();
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("fecha").setAttribute("max", today); 
 document.getElementById("fecha").setAttribute("min", today); 
+
 document.getElementById("fechaFin").setAttribute("max",today);
 document.getElementById("fechaIni").setAttribute("max",today);
 
@@ -178,4 +190,25 @@ function soloNumeros(e){
   if (key < 48 || key > 57) {
     e.preventDefault();
   }
+}
+
+
+
+
+//generar Excel
+
+function descargarExcel(){
+  //Creamos un Elemento Temporal en forma de enlace
+  var tmpElemento = document.createElement('a');
+  // obtenemos la información desde el div que lo contiene en el html
+  // Obtenemos la información de la tabla
+  var data_type = 'data:application/vnd.ms-excel';
+  var tabla_div = document.getElementById('tablaRepo');
+  var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
+  tmpElemento.href = data_type + ', ' + tabla_html;
+  //Asignamos el nombre a nuestro EXCEL
+  var fecha =new Date();
+  tmpElemento.download = 'ReportePartidas '+fecha.getDate()+"-"+(fecha.getMonth()+1)+"-"+fecha.getFullYear()+'.xls';
+  // Simulamos el click al elemento creado para descargarlo
+  tmpElemento.click();
 }
