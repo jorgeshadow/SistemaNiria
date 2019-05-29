@@ -164,6 +164,61 @@ function remover(key){
   this.llenarTabla()
 }
 
+
+
+function onKeyUp(event) {
+  var keycode = event.keyCode;
+  if(keycode == '13'){
+
+    var search = document.getElementById("buscar");
+    buscar(search.value);
+    document.getElementById("butonDeleteSearch").style.display = "initial";
+
+  }
+}
+function limpiarB(){
+  document.getElementById("buscar").value =""
+  this.llenarTabla();
+  document.getElementById("butonDeleteSearch").style.display = "none";
+}
+
+//buscador
+function buscar(value){
+  var data = db.ref('partidas');
+ 
+  var table = document.getElementById('contentTable');
+  if (table) {
+    
+    table.innerHTML = "";
+    data.orderByChild("articulo").equalTo(value).on("child_added", function (datos) {
+      var d = datos.val();
+
+      {
+        var row = table.insertRow(0);
+        var cellClave = row.insertCell(0);
+        var cellPartida = row.insertCell(1);
+        var cellArticulo = row.insertCell(2);
+        var cellFecha = row.insertCell(3);
+        var cellCantidad = row.insertCell(4);
+        var cellPU = row.insertCell(5);
+        var cellEdit = row.insertCell(6);
+        var cellDelete = row.insertCell(7);
+
+        cellArticulo.innerHTML = d.articulo;
+        cellCantidad.innerHTML = d.cantidad;
+        cellClave.innerHTML = d.clave;
+        cellFecha.innerHTML = d.fecha;
+        cellPartida.innerHTML = d.partida;
+        cellPU.innerHTML = "$ " + d.precioU + " MNX";
+        cellEdit.innerHTML = '<a class="btn btn-warning"><em class="fa fa-edit" style="color:white"></em></a>';
+        cellDelete.innerHTML = ' <a class="btn btn-danger" onclick="remover(\''+datos.key+'\')"><em class="fa fa-trash-alt" style="color:white"></em></a>';
+
+      }
+
+    });
+  }
+}
+
 /**validaciones date */
 
 var today =  new Date();
@@ -191,10 +246,6 @@ function soloNumeros(e){
     e.preventDefault();
   }
 }
-
-
-
-
 //generar Excel
 
 function descargarExcel(){

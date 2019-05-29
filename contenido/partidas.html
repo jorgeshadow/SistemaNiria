@@ -90,7 +90,8 @@
                                     <h2>Partidas</h2>
 
                                     <div class="inputBuscar">
-                                        <input id="buscar" type="search" placeholder="Buscar">
+                                        <input onkeyup="onKeyUp(event)" id="buscar" type="text" placeholder="Buscar">
+                                        <a id="butonDeleteSearch" class="btn btn-danger" onclick="limpiarB()" style="display: none;"><em class="fa fa-times" style="color:white;"></em></a>
                                     </div>
 
                                     <div class="divFilter">
@@ -145,10 +146,6 @@
         </div>
     </div>
     </div>
-
-
-
-
     </div>
 
     <!-- ModalNuevo -->
